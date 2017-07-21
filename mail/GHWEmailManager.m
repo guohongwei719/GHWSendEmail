@@ -19,15 +19,14 @@
 @end
 
 @implementation GHWEmailManager
-static GHWEmailManager * emailManager;
-+ (GHWEmailManager*)shareInstance{
-    if (emailManager == nil) {
-        static dispatch_once_t onceToken;
-        dispatch_once(&onceToken, ^{
-            emailManager = [[GHWEmailManager alloc] init];
-        });
-    }
-    
+
++ (GHWEmailManager*)shareInstance
+{
+    static dispatch_once_t onceToken;
+    static GHWEmailManager * emailManager;
+    dispatch_once(&onceToken, ^{
+        emailManager = [[GHWEmailManager alloc] init];
+    });
     return emailManager;
 }
 
