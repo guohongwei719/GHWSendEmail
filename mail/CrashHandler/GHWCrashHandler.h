@@ -19,5 +19,7 @@
 {
     BOOL dismissed;
 }
+- (void)configDismissed;
++ (GHWCrashHandler *)sharedInstance;
 void InstallCrashExceptionHandler();
 @end

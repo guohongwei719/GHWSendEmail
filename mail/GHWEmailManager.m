@@ -8,6 +8,7 @@
 
 #import "GHWEmailManager.h"
 #import "SKPSMTPMessage.h"
+#import "GHWCrashHandler.h"
 
 @interface GHWEmailManager ()<SKPSMTPMessageDelegate>
 
@@ -38,30 +39,21 @@
     self.relayHost = relayHost;
 }
 
--(void)sendEmail:(NSString*)content{
-    
+-(void)sendEmail:(NSString*)content
+{
     SKPSMTPMessage *myMessage = [[SKPSMTPMessage alloc] init];
     myMessage.delegate = self;
     myMessage.fromEmail = self.fromEmail;//发送者邮箱
+    myMessage.pass = self.password;//发送者邮箱的密码
+    myMessage.login = self.fromEmail;//发送者邮箱的用户名
     myMessage.toEmail = self.toEmail;//收件邮箱
     //myMessage.bccEmail = @"******@qq.com";//抄送
-    
-    //myMessage.relayHost = @"smtp.exmail.qq.com";//发送地址host 腾讯企业邮箱:smtp.exmail.qq.com
-    
-    
-    
     myMessage.relayHost = self.relayHost;
     myMessage.requiresAuth = YES;
-    if (myMessage.requiresAuth) {
-        myMessage.login = self.fromEmail;//发送者邮箱的用户名
-        myMessage.pass = self.password;//发送者邮箱的密码
-    }
-    
     myMessage.wantsSecure = YES;//为gmail邮箱设置 smtp.gmail.com
     myMessage.subject = @"iOS崩溃日志";//邮件主题
     
     /* >>>>>>>>>>>>>>>>>>>> *   设置邮件内容   * <<<<<<<<<<<<<<<<<<<< */
-    //1.文字信息
     NSDictionary *plainPart = [NSDictionary dictionaryWithObjectsAndKeys:@"text/plain; charset=UTF-8",kSKPSMTPPartContentTypeKey, content,kSKPSMTPPartMessageKey,@"8bit",kSKPSMTPPartContentTransferEncodingKey,nil];
     
     myMessage.parts = [NSArray arrayWithObjects:plainPart,nil];
@@ -74,6 +66,8 @@
 - (void)messageSent:(SKPSMTPMessage *)message
 {
     NSLog(@"发送邮件成功");
+    [[GHWCrashHandler sharedInstance] configDismissed];
+
 }
 - (void)messageFailed:(SKPSMTPMessage *)message error:(NSError *)error
 {

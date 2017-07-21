@@ -17,9 +17,7 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
     InstallCrashExceptionHandler();
-
     return YES;
 }
 

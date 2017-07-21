@@ -16,8 +16,7 @@
 #include <execinfo.h>
 #import "GHWEmailManager.h"
 
-NSString * const YDCrashHandlerSignalExceptionName =
-@"YDCrashHandlerSignalExceptionName";
+NSString * const YDCrashHandlerSignalExceptionName = @"YDCrashHandlerSignalExceptionName";
 NSString * const YDCrashHandlerSignalKey = @"YDCrashHandlerSignalKey";
 NSString * const YDCrashHandlerAddressesKey = @"YDCrashHandlerAddressesKey";
 
@@ -28,6 +27,23 @@ const NSInteger UncaughtExceptionHandlerSkipAddressCount = 4;
 const NSInteger UncaughtExceptionHandlerReportAddressCount = 5;
 
 @implementation GHWCrashHandler
++ (GHWCrashHandler *)sharedInstance
+{
+    static GHWCrashHandler *crashHandler;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        crashHandler = [[GHWCrashHandler alloc] init];
+    });
+    
+    return crashHandler;
+}
+
+- (void)configDismissed
+{
+    dismissed = YES;
+}
+
+
 + (NSArray *)backtrace
 {
     void* callstack[128];
@@ -49,29 +65,24 @@ const NSInteger UncaughtExceptionHandlerReportAddressCount = 5;
     return backtrace;
 }
 
-- (void)alertView:(UIAlertView *)anAlertView
-clickedButtonAtIndex:(NSInteger)anIndex
+- (void)alertView:(UIAlertView *)anAlertView clickedButtonAtIndex:(NSInteger)anIndex
 {
-    //if (anIndex == 0)
-    //{
     dismissed = YES;
-    //}
 }
 
 
 - (void)handleException:(NSException *)exception
 {
+    NSArray *arr = [exception callStackSymbols];
+    NSString *reason = [exception reason];
+    NSString *name = [exception name];
+    NSDate *nowDate = [NSDate date];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *nowDateString = [formatter stringFromDate:nowDate];
     
-//    UIAlertView *thisAlert = [[UIAlertView alloc] initWithTitle:@"Sorry"
-//                                                        message:@"An unexpected event happened causing the application to shutdown."
-//                                                       delegate:nil
-//                                              cancelButtonTitle:@"Ok"
-//                                              otherButtonTitles:nil, nil];
-//    
-//    [thisAlert show];
-    [[GHWEmailManager shareInstance] sendEmail:@"test"];
-
-    
+    NSString *strError = [NSString stringWithFormat:@"\n\n\n=============异常崩溃报告=============\n崩溃发生的时间:\n %@\n崩溃名称:\n%@\n崩溃原因:\n%@\n堆栈信息:\n%@" ,nowDateString,name,reason, arr];
+    [[GHWEmailManager shareInstance] sendEmail:strError];
     CFRunLoopRef runLoop = CFRunLoopGetCurrent();
     CFArrayRef allModes = CFRunLoopCopyAllModes(runLoop);
     
@@ -82,9 +93,7 @@ clickedButtonAtIndex:(NSInteger)anIndex
             CFRunLoopRunInMode((CFStringRef)CFBridgingRetain(mode), 0.001, false);
         }
     }
-    
     CFRelease(allModes);
-    
     NSSetUncaughtExceptionHandler(NULL);
     signal(SIGABRT, SIG_DFL);
     signal(SIGILL, SIG_DFL);
@@ -96,12 +105,11 @@ clickedButtonAtIndex:(NSInteger)anIndex
     if ([[exception name] isEqual:YDCrashHandlerSignalExceptionName])
     {
         kill(getpid(), [[[exception userInfo] objectForKey:YDCrashHandlerSignalKey] intValue]);
-    }  
+    }
     else
-    {  
+    {
         [exception raise];
     }
-    
 
 }
 
@@ -111,61 +119,40 @@ clickedButtonAtIndex:(NSInteger)anIndex
 void HandleException(NSException *exception)
 {
     int32_t exceptionCount = OSAtomicIncrement32(&UncaughtExceptionCount);
-    if (exceptionCount > UncaughtExceptionMaximum)
-    {
+    if (exceptionCount > UncaughtExceptionMaximum) {
         return;
     }
-    
     NSArray *callStack = [GHWCrashHandler backtrace];
     NSMutableDictionary *userInfo =
     [NSMutableDictionary dictionaryWithDictionary:[exception userInfo]];
-    [userInfo
-     setObject:callStack
-     forKey:YDCrashHandlerAddressesKey];
-    
-    [[[GHWCrashHandler alloc] init]
-     performSelectorOnMainThread:@selector(handleException:)
-     withObject:
-     [NSException
-      exceptionWithName:[exception name]
-      reason:[exception reason]
-      userInfo:userInfo]
-     waitUntilDone:YES];
+    [userInfo setObject:callStack forKey:YDCrashHandlerAddressesKey];
+    [[[GHWCrashHandler alloc] init] performSelectorOnMainThread:@selector(handleException:)
+     
+                                                     withObject:[NSException exceptionWithName:[exception name]
+                                                                                        reason:[exception reason]
+                                                                                      userInfo:userInfo]
+                                                  waitUntilDone:YES];
 }
 
 void SignalHandler(int signal)
 {
     int32_t exceptionCount = OSAtomicIncrement32(&UncaughtExceptionCount);
-    if (exceptionCount > UncaughtExceptionMaximum)
-    {
+    if (exceptionCount > UncaughtExceptionMaximum) {
         return;
     }
-    
     NSMutableDictionary *userInfo =
-    [NSMutableDictionary
-     dictionaryWithObject:[NSNumber numberWithInt:signal]
-     forKey:YDCrashHandlerSignalKey];
-    
+    [NSMutableDictionary dictionaryWithObject:[NSNumber numberWithInt:signal] forKey:YDCrashHandlerSignalKey];
     NSArray *callStack = [GHWCrashHandler backtrace];
-    [userInfo
-     setObject:callStack
-     forKey:YDCrashHandlerAddressesKey];
-    
-    [[[GHWCrashHandler alloc] init]
-     performSelectorOnMainThread:@selector(handleException:)
-     withObject:
-     [NSException
-      exceptionWithName:YDCrashHandlerSignalExceptionName
-      reason:
-      [NSString stringWithFormat:@"Signal %d was raised.", signal]
-      userInfo:
-      [NSDictionary
-       dictionaryWithObject:[NSNumber numberWithInt:signal]
-       forKey:YDCrashHandlerSignalKey]]
-     waitUntilDone:YES];
+    [userInfo setObject:callStack forKey:YDCrashHandlerAddressesKey];
+    [[[GHWCrashHandler alloc] init] performSelectorOnMainThread:@selector(handleException:)
+                                                     withObject:[NSException
+                                                                 exceptionWithName:YDCrashHandlerSignalExceptionName
+                                                                 reason:[NSString stringWithFormat:@"Signal %d was raised.", signal]
+                                                                 userInfo:[NSDictionary
+                                                                           dictionaryWithObject:[NSNumber numberWithInt:signal]
+                                                                           forKey:YDCrashHandlerSignalKey]]
+                                                  waitUntilDone:YES];
 }
-
-
 void InstallCrashExceptionHandler()
 {
     NSSetUncaughtExceptionHandler(&HandleException);
