@@ -1,0 +1,594 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B313BAAB1F0CC3E5000FC144 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B313BAAA1F0CC3E5000FC144 /* AppDelegate.m */; };
+		B313BAAE1F0CC3E5000FC144 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B313BAAD1F0CC3E5000FC144 /* ViewController.m */; };
+		B313BAB11F0CC3E5000FC144 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B313BAAF1F0CC3E5000FC144 /* Main.storyboard */; };
+		B313BAB31F0CC3E5000FC144 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B313BAB21F0CC3E5000FC144 /* Assets.xcassets */; };
+		B313BAB61F0CC3E5000FC144 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B313BAB41F0CC3E5000FC144 /* LaunchScreen.storyboard */; };
+		B313BAB91F0CC3E5000FC144 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B313BAB81F0CC3E5000FC144 /* main.m */; };
+		B313BAC31F0CC3E5000FC144 /* mailTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B313BAC21F0CC3E5000FC144 /* mailTests.m */; };
+		B313BACE1F0CC3E5000FC144 /* mailUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B313BACD1F0CC3E5000FC144 /* mailUITests.m */; };
+		B330638E1F17166B0005E761 /* GHWEmailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B330638D1F17166B0005E761 /* GHWEmailManager.m */; };
+		ED49D08A1F1CA8D20093D31B /* GHWCrashHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = ED49D0891F1CA8D20093D31B /* GHWCrashHandler.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EDC7E8F31F174DF000A93026 /* Base64Transcoder.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC7E8EA1F174DF000A93026 /* Base64Transcoder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EDC7E8F41F174DF000A93026 /* HSK_CFUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC7E8EC1F174DF000A93026 /* HSK_CFUtilities.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EDC7E8F51F174DF000A93026 /* NSData+Base64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC7E8EE1F174DF000A93026 /* NSData+Base64Additions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EDC7E8F61F174DF000A93026 /* NSStream+SKPSMTPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC7E8F01F174DF000A93026 /* NSStream+SKPSMTPExtensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EDC7E8F71F174DF000A93026 /* SKPSMTPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC7E8F21F174DF000A93026 /* SKPSMTPMessage.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B313BABF1F0CC3E5000FC144 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B313BA9E1F0CC3E5000FC144 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B313BAA51F0CC3E5000FC144;
+			remoteInfo = mail;
+		};
+		B313BACA1F0CC3E5000FC144 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B313BA9E1F0CC3E5000FC144 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B313BAA51F0CC3E5000FC144;
+			remoteInfo = mail;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B313BAA61F0CC3E5000FC144 /* mail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mail.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B313BAA91F0CC3E5000FC144 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B313BAAA1F0CC3E5000FC144 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B313BAAC1F0CC3E5000FC144 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		B313BAAD1F0CC3E5000FC144 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B313BAB01F0CC3E5000FC144 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B313BAB21F0CC3E5000FC144 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B313BAB51F0CC3E5000FC144 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B313BAB71F0CC3E5000FC144 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B313BAB81F0CC3E5000FC144 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B313BABE1F0CC3E5000FC144 /* mailTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mailTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B313BAC21F0CC3E5000FC144 /* mailTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mailTests.m; sourceTree = "<group>"; };
+		B313BAC41F0CC3E5000FC144 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B313BAC91F0CC3E5000FC144 /* mailUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mailUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B313BACD1F0CC3E5000FC144 /* mailUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mailUITests.m; sourceTree = "<group>"; };
+		B313BACF1F0CC3E5000FC144 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B330638C1F17166B0005E761 /* GHWEmailManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GHWEmailManager.h; sourceTree = "<group>"; };
+		B330638D1F17166B0005E761 /* GHWEmailManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHWEmailManager.m; sourceTree = "<group>"; };
+		ED49D0881F1CA8D20093D31B /* GHWCrashHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHWCrashHandler.h; path = CrashHandler/GHWCrashHandler.h; sourceTree = "<group>"; };
+		ED49D0891F1CA8D20093D31B /* GHWCrashHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GHWCrashHandler.m; path = CrashHandler/GHWCrashHandler.m; sourceTree = "<group>"; };
+		EDC7E8E91F174DF000A93026 /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
+		EDC7E8EA1F174DF000A93026 /* Base64Transcoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64Transcoder.m; sourceTree = "<group>"; };
+		EDC7E8EB1F174DF000A93026 /* HSK_CFUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSK_CFUtilities.h; sourceTree = "<group>"; };
+		EDC7E8EC1F174DF000A93026 /* HSK_CFUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSK_CFUtilities.m; sourceTree = "<group>"; };
+		EDC7E8ED1F174DF000A93026 /* NSData+Base64Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64Additions.h"; sourceTree = "<group>"; };
+		EDC7E8EE1F174DF000A93026 /* NSData+Base64Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64Additions.m"; sourceTree = "<group>"; };
+		EDC7E8EF1F174DF000A93026 /* NSStream+SKPSMTPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSStream+SKPSMTPExtensions.h"; sourceTree = "<group>"; };
+		EDC7E8F01F174DF000A93026 /* NSStream+SKPSMTPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSStream+SKPSMTPExtensions.m"; sourceTree = "<group>"; };
+		EDC7E8F11F174DF000A93026 /* SKPSMTPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPSMTPMessage.h; sourceTree = "<group>"; };
+		EDC7E8F21F174DF000A93026 /* SKPSMTPMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPSMTPMessage.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B313BAA31F0CC3E5000FC144 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B313BABB1F0CC3E5000FC144 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B313BAC61F0CC3E5000FC144 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B313BA9D1F0CC3E5000FC144 = {
+			isa = PBXGroup;
+			children = (
+				B313BAA81F0CC3E5000FC144 /* mail */,
+				B313BAC11F0CC3E5000FC144 /* mailTests */,
+				B313BACC1F0CC3E5000FC144 /* mailUITests */,
+				B313BAA71F0CC3E5000FC144 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B313BAA71F0CC3E5000FC144 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B313BAA61F0CC3E5000FC144 /* mail.app */,
+				B313BABE1F0CC3E5000FC144 /* mailTests.xctest */,
+				B313BAC91F0CC3E5000FC144 /* mailUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B313BAA81F0CC3E5000FC144 /* mail */ = {
+			isa = PBXGroup;
+			children = (
+				ED49D0881F1CA8D20093D31B /* GHWCrashHandler.h */,
+				ED49D0891F1CA8D20093D31B /* GHWCrashHandler.m */,
+				EDC7E8E81F174DF000A93026 /* SMTPLibrary */,
+				B313BAA91F0CC3E5000FC144 /* AppDelegate.h */,
+				B313BAAA1F0CC3E5000FC144 /* AppDelegate.m */,
+				B313BAAC1F0CC3E5000FC144 /* ViewController.h */,
+				B313BAAD1F0CC3E5000FC144 /* ViewController.m */,
+				B330638C1F17166B0005E761 /* GHWEmailManager.h */,
+				B330638D1F17166B0005E761 /* GHWEmailManager.m */,
+				B313BAAF1F0CC3E5000FC144 /* Main.storyboard */,
+				B313BAB21F0CC3E5000FC144 /* Assets.xcassets */,
+				B313BAB41F0CC3E5000FC144 /* LaunchScreen.storyboard */,
+				B313BAB71F0CC3E5000FC144 /* Info.plist */,
+				B313BAB81F0CC3E5000FC144 /* main.m */,
+			);
+			path = mail;
+			sourceTree = "<group>";
+		};
+		B313BAC11F0CC3E5000FC144 /* mailTests */ = {
+			isa = PBXGroup;
+			children = (
+				B313BAC21F0CC3E5000FC144 /* mailTests.m */,
+				B313BAC41F0CC3E5000FC144 /* Info.plist */,
+			);
+			path = mailTests;
+			sourceTree = "<group>";
+		};
+		B313BACC1F0CC3E5000FC144 /* mailUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B313BACD1F0CC3E5000FC144 /* mailUITests.m */,
+				B313BACF1F0CC3E5000FC144 /* Info.plist */,
+			);
+			path = mailUITests;
+			sourceTree = "<group>";
+		};
+		EDC7E8E81F174DF000A93026 /* SMTPLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				EDC7E8E91F174DF000A93026 /* Base64Transcoder.h */,
+				EDC7E8EA1F174DF000A93026 /* Base64Transcoder.m */,
+				EDC7E8EB1F174DF000A93026 /* HSK_CFUtilities.h */,
+				EDC7E8EC1F174DF000A93026 /* HSK_CFUtilities.m */,
+				EDC7E8ED1F174DF000A93026 /* NSData+Base64Additions.h */,
+				EDC7E8EE1F174DF000A93026 /* NSData+Base64Additions.m */,
+				EDC7E8EF1F174DF000A93026 /* NSStream+SKPSMTPExtensions.h */,
+				EDC7E8F01F174DF000A93026 /* NSStream+SKPSMTPExtensions.m */,
+				EDC7E8F11F174DF000A93026 /* SKPSMTPMessage.h */,
+				EDC7E8F21F174DF000A93026 /* SKPSMTPMessage.m */,
+			);
+			path = SMTPLibrary;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B313BAA51F0CC3E5000FC144 /* mail */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B313BAD21F0CC3E5000FC144 /* Build configuration list for PBXNativeTarget "mail" */;
+			buildPhases = (
+				B313BAA21F0CC3E5000FC144 /* Sources */,
+				B313BAA31F0CC3E5000FC144 /* Frameworks */,
+				B313BAA41F0CC3E5000FC144 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = mail;
+			productName = mail;
+			productReference = B313BAA61F0CC3E5000FC144 /* mail.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B313BABD1F0CC3E5000FC144 /* mailTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B313BAD51F0CC3E5000FC144 /* Build configuration list for PBXNativeTarget "mailTests" */;
+			buildPhases = (
+				B313BABA1F0CC3E5000FC144 /* Sources */,
+				B313BABB1F0CC3E5000FC144 /* Frameworks */,
+				B313BABC1F0CC3E5000FC144 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B313BAC01F0CC3E5000FC144 /* PBXTargetDependency */,
+			);
+			name = mailTests;
+			productName = mailTests;
+			productReference = B313BABE1F0CC3E5000FC144 /* mailTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B313BAC81F0CC3E5000FC144 /* mailUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B313BAD81F0CC3E5000FC144 /* Build configuration list for PBXNativeTarget "mailUITests" */;
+			buildPhases = (
+				B313BAC51F0CC3E5000FC144 /* Sources */,
+				B313BAC61F0CC3E5000FC144 /* Frameworks */,
+				B313BAC71F0CC3E5000FC144 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B313BACB1F0CC3E5000FC144 /* PBXTargetDependency */,
+			);
+			name = mailUITests;
+			productName = mailUITests;
+			productReference = B313BAC91F0CC3E5000FC144 /* mailUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B313BA9E1F0CC3E5000FC144 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "朱斌";
+				TargetAttributes = {
+					B313BAA51F0CC3E5000FC144 = {
+						CreatedOnToolsVersion = 9.0;
+					};
+					B313BABD1F0CC3E5000FC144 = {
+						CreatedOnToolsVersion = 9.0;
+						TestTargetID = B313BAA51F0CC3E5000FC144;
+					};
+					B313BAC81F0CC3E5000FC144 = {
+						CreatedOnToolsVersion = 9.0;
+						TestTargetID = B313BAA51F0CC3E5000FC144;
+					};
+				};
+			};
+			buildConfigurationList = B313BAA11F0CC3E5000FC144 /* Build configuration list for PBXProject "mail" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B313BA9D1F0CC3E5000FC144;
+			productRefGroup = B313BAA71F0CC3E5000FC144 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B313BAA51F0CC3E5000FC144 /* mail */,
+				B313BABD1F0CC3E5000FC144 /* mailTests */,
+				B313BAC81F0CC3E5000FC144 /* mailUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B313BAA41F0CC3E5000FC144 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B313BAB61F0CC3E5000FC144 /* LaunchScreen.storyboard in Resources */,
+				B313BAB31F0CC3E5000FC144 /* Assets.xcassets in Resources */,
+				B313BAB11F0CC3E5000FC144 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B313BABC1F0CC3E5000FC144 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B313BAC71F0CC3E5000FC144 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B313BAA21F0CC3E5000FC144 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B313BAAE1F0CC3E5000FC144 /* ViewController.m in Sources */,
+				EDC7E8F41F174DF000A93026 /* HSK_CFUtilities.m in Sources */,
+				B313BAB91F0CC3E5000FC144 /* main.m in Sources */,
+				EDC7E8F61F174DF000A93026 /* NSStream+SKPSMTPExtensions.m in Sources */,
+				B313BAAB1F0CC3E5000FC144 /* AppDelegate.m in Sources */,
+				EDC7E8F31F174DF000A93026 /* Base64Transcoder.m in Sources */,
+				EDC7E8F51F174DF000A93026 /* NSData+Base64Additions.m in Sources */,
+				B330638E1F17166B0005E761 /* GHWEmailManager.m in Sources */,
+				EDC7E8F71F174DF000A93026 /* SKPSMTPMessage.m in Sources */,
+				ED49D08A1F1CA8D20093D31B /* GHWCrashHandler.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B313BABA1F0CC3E5000FC144 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B313BAC31F0CC3E5000FC144 /* mailTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B313BAC51F0CC3E5000FC144 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B313BACE1F0CC3E5000FC144 /* mailUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B313BAC01F0CC3E5000FC144 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B313BAA51F0CC3E5000FC144 /* mail */;
+			targetProxy = B313BABF1F0CC3E5000FC144 /* PBXContainerItemProxy */;
+		};
+		B313BACB1F0CC3E5000FC144 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B313BAA51F0CC3E5000FC144 /* mail */;
+			targetProxy = B313BACA1F0CC3E5000FC144 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B313BAAF1F0CC3E5000FC144 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B313BAB01F0CC3E5000FC144 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B313BAB41F0CC3E5000FC144 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B313BAB51F0CC3E5000FC144 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B313BAD01F0CC3E5000FC144 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		B313BAD11F0CC3E5000FC144 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B313BAD31F0CC3E5000FC144 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 45NCV9F7PJ;
+				INFOPLIST_FILE = mail/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = f.mail;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B313BAD41F0CC3E5000FC144 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 45NCV9F7PJ;
+				INFOPLIST_FILE = mail/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = f.mail;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B313BAD61F0CC3E5000FC144 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = mailTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = f.mailTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mail.app/mail";
+			};
+			name = Debug;
+		};
+		B313BAD71F0CC3E5000FC144 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = mailTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = f.mailTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mail.app/mail";
+			};
+			name = Release;
+		};
+		B313BAD91F0CC3E5000FC144 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 45NCV9F7PJ;
+				INFOPLIST_FILE = mailUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = f.mailUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = mail;
+			};
+			name = Debug;
+		};
+		B313BADA1F0CC3E5000FC144 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 45NCV9F7PJ;
+				INFOPLIST_FILE = mailUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = f.mailUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = mail;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B313BAA11F0CC3E5000FC144 /* Build configuration list for PBXProject "mail" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B313BAD01F0CC3E5000FC144 /* Debug */,
+				B313BAD11F0CC3E5000FC144 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B313BAD21F0CC3E5000FC144 /* Build configuration list for PBXNativeTarget "mail" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B313BAD31F0CC3E5000FC144 /* Debug */,
+				B313BAD41F0CC3E5000FC144 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B313BAD51F0CC3E5000FC144 /* Build configuration list for PBXNativeTarget "mailTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B313BAD61F0CC3E5000FC144 /* Debug */,
+				B313BAD71F0CC3E5000FC144 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B313BAD81F0CC3E5000FC144 /* Build configuration list for PBXNativeTarget "mailUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B313BAD91F0CC3E5000FC144 /* Debug */,
+				B313BADA1F0CC3E5000FC144 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B313BA9E1F0CC3E5000FC144 /* Project object */;
+}
