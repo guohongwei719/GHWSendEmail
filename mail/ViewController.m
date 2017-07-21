@@ -20,7 +20,7 @@
     [super viewDidLoad];
     // 这里需要配置好发件箱，126的都很好用，这里要替换为你自己的
     [[GHWEmailManager shareInstance] configWithFromEmail:@"guohongwei719@126.com"
-                                              andPasswod:@"110000guohongwei"
+                                              andPasswod:@"*******"
                                               andToEmail:@"guohongwei719@126.com"
                                             andRelayHose:@"smtp.126.com"];
 }
