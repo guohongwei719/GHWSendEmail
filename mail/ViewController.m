@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 #import "GHWEmailManager.h"
-//#import "NSData+Base64Additions.h"
 
 @interface ViewController (){
     GHWEmailManager * emmailManager;
@@ -19,9 +18,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // 这里需要配置好发件箱，126的都很好用
+    [[GHWEmailManager shareInstance] configWithFromEmail:@"guohongwei719@126.com"
+                                              andPasswod:@"*******"
+                                              andToEmail:@"guohongwei719@126.com"
+                                            andRelayHose:@"smtp.126.com"];
 }
 
-- (IBAction)sendMail:(id)sender {
+- (IBAction)sendMail:(id)sender
+{
+    // 故意制造一个crash
+    
     NSArray * arr = @[@"1",@"2"];
     NSString *str = arr[3];
     return;

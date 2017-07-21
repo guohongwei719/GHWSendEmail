@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GHWEmailManager : NSObject{
-}
+@interface GHWEmailManager : NSObject
+
 + (GHWEmailManager*)shareInstance;
 
--(void)sendEmail:(NSString*)content;
+- (void)configWithFromEmail:(NSString *)fromEmail andPasswod:(NSString *)password andToEmail:(NSString *)toEmail andRelayHose:(NSString *)relayHost;
+- (void)sendEmail:(NSString*)content;
 
 @end
